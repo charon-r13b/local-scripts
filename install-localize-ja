@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+${SCRIPT_DIR}/install-basic-packages
+
+sudo dnf install -y glibc-langpack-ja
+sudo localectl set-locale LANG=ja_JP.utf8
+sudo localectl set-keymap jp106
+sudo timedatectl set-timezone Asia/Tokyo
+sudo dnf install -y langpacks-ja

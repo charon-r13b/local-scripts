@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+${SCRIPT_DIR}/update-os-packages
+
+sudo dnf install -y \
+  git
+
+sudo chsh -s /bin/bash $USER

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+${SCRIPT_DIR}/install-desktop-packages
+
+sudo dnf install freerdp
+
+sudo firewall-cmd --permanent --add-port=3389/tcp
+sudo firewall-cmd --reload
+
+mkdir -p ~/.local/share/gnome-remote-desktop
+winpr-makecert -silent -rdp -path ~/.local/share/gnome-remote-desktop tls
+
+grdctl --headless rdp set-tls-key ~/.local/share/gnome-remote-desktop/tls.key
+grdctl --headless rdp set-tls-cert ~/.local/share/gnome-remote-desktop/tls.crt
+grdctl --headless rdp set-credentials
+grdctl --headless rdp enable
+
+systemctl --user enable --now gnome-remote-desktop-headless.service
+sudo systemctl enable --now gnome-headless-session@${USER}.service
+

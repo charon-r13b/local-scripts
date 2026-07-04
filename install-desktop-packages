@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+${SCRIPT_DIR}/install-localize-ja
+
+sudo dnf group install -y 'Server with GUI'
+
+sudo systemctl set-default graphical
