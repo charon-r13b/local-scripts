@@ -20,3 +20,4 @@ grdctl --headless rdp enable
 systemctl --user enable --now gnome-remote-desktop-headless.service
 sudo systemctl enable --now gnome-headless-session@${USER}.service
 
+gsettings set org.gnome.desktop.session idle-delay 0
