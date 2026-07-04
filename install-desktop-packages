@@ -6,7 +6,8 @@ ${SCRIPT_DIR}/install-localize-ja
 
 sudo dnf install -y \
   emacs \
-  tmux
+  tmux \
+  xsel
 
 sudo dnf group install -y 'Server with GUI'
 
