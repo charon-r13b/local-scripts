@@ -4,6 +4,13 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 ${SCRIPT_DIR}/install-localize-ja
 
+sudo dnf install -y \
+  emacs \
+  tmux
+
 sudo dnf group install -y 'Server with GUI'
+
+gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 
 sudo systemctl set-default graphical

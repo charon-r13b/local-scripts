@@ -4,7 +4,7 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 ${SCRIPT_DIR}/install-desktop-packages
 
-sudo dnf install freerdp
+sudo dnf install -y freerdp
 
 sudo firewall-cmd --permanent --add-port=3389/tcp
 sudo firewall-cmd --reload
