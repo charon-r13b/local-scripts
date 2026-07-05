@@ -1,3 +1,16 @@
 #!/bin/bash
 
+sudo dnf install -y \
+  java-21-openjdk-devel \
+  java-25-openjdk-devel
+
 curl https://mise.run | sh
+
+if ! grep -q "mise activate bash" ~/.bashrc; then
+    echo "eval \"\$($HOME/.local/bin/mise activate bash)\"" >> ~/.bashrc
+fi
+
+. $HOME/.bashrc
+
+mise link -f java@21el /usr/lib/jvm/java-21-openjdk
+mise link -f java@25el /usr/lib/jvm/java-25-openjdk

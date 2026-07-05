@@ -5,7 +5,8 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 ${SCRIPT_DIR}/update-os-packages
 
 sudo dnf install -y \
-  git \
+   git \
+  ca-certificates \
   epel-release
 
 sudo chsh -s /bin/bash $USER
