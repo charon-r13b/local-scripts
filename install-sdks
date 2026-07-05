@@ -12,5 +12,8 @@ fi
 
 . $HOME/.bashrc
 
-mise link -f java@21el /usr/lib/jvm/java-21-openjdk
-mise link -f java@25el /usr/lib/jvm/java-25-openjdk
+mise link -f java@el-21 /usr/lib/jvm/java-21-openjdk
+mise link -f java@el-25 /usr/lib/jvm/java-25-openjdk
+
+mise plugin install maven
+mise use -g maven@3
